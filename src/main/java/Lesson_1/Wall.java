@@ -1,13 +1,32 @@
 package Lesson_1;
 
 
-import Lesson_1.interface1.Barrier;
+import Lesson_1.interface1.Obstacles;
+import Lesson_1.interface1.Player;
 
-public class Wall implements Barrier {
+public class Wall implements Obstacles {
+        private int height;
 
-        private String nickname;
-
-        public Wall(String nickname, int jump_up) {
+        public Wall(int height) {
+                if (height > 0) {
+                        this.height = height;
+                } else {
+                        System.out.println("Значение поля высота введено неверно");
+                }
         }
 
+        public int getLevel() {
+                return height;
+        }
+
+        @Override
+        public boolean trial(Player player) {
+                if (player.getAgility() >= getLevel()) {
+                        player.jump();
+                        return true;
+                } else {
+                        System.out.println("учасник " + player.toString() + "не смог преодолеть препятствие стена в " + height + " метра и выбывает из марафона");
+                        return false;
+                }
+        }
 }

@@ -1,69 +1,48 @@
 package Lesson_1;
 
-import Lesson_1.interface1.Barrier;
-import Lesson_1.interface1.Barrier.Distance;
-import Lesson_1.interface1.Barrier.Jumping;
-import Lesson_1.interface1.Members;
 
-import java.util.concurrent.ThreadLocalRandom;
+import Lesson_1.interface1.Player;
 
-public class Cat implements Jumping, Distance, Members {
+public class Cat implements Player {
     private String nickname;
-    private int runDistance;
-    private int jump_up;
+    private int endurance;
+    private int agility;
 
-    public Cat(String nickname, int runDistance, int jump_up) {
+
+    public Cat(String nickname, int endurance, int agility) {
         this.nickname = nickname;
-        this.runDistance = runDistance;
-        this.jump_up = jump_up;
+        this.endurance = endurance;
+        this.agility = agility;
     }
 
-    public String getNickname() {
-        return nickname;
-    }
-
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
-
-    public int getRunDistance() {
-        return runDistance;
-    }
-
-    public int getJump_up() {
-        return jump_up;
+    public String info() {
+        return "Кот" + nickname;
     }
 
     @Override
     public String toString() {
-        return "Кот {" +
-                "Имя - " + '\'' + nickname + '\'' +
-                ". Может пробежать - " + runDistance + " m. " +
-                "Прыгает на высоту - " + jump_up + " m. " +
+        return "Cat{" +
+                "nickname='" + nickname + '\'' +
                 '}';
     }
 
     @Override
-    public void jumping() {
-        jump_up = ThreadLocalRandom.current().nextInt(20);
-        if (jump_up < 5) {
-            System.out.println("Прыгнул на высоту: " + jump_up + " Не смог  преодалеть стену!");
-
-        }
-    }
-
-    public void printInfo() {
-        System.out.println(this);
-    }
-
-    public void RunStart() {
-        String run = " Кот начинает бежать";
-        System.out.println(run);
-
+    public int getAgility() {
+        return agility;
     }
 
     @Override
-    public void Distance() {
+    public int getEndurance() {
+        return endurance;
+    }
 
+    @Override
+    public void run() {
+        System.out.println("Кот " + nickname + " пробежал дистанцию");
+    }
+
+    @Override
+    public void jump() {
+        System.out.println("Кот " + nickname + " перепрыгнул через препятствие");
     }
 }

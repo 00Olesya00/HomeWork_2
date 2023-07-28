@@ -2,22 +2,22 @@ package Lesson_1;
 
 import Lesson_1.interface1.Player;
 
-public class Robot implements Player {
-    private String model;
+
+public class Human implements Player {
+    private String name;
     private int endurance;
     private int agility;
 
-    public Robot(String model, int endurance, int agility) {
-        this.model = model;
+    public Human(String name, int endurance, int agility) {
+        this.name = name;
         this.endurance = endurance;
         this.agility = agility;
     }
 
-
     @Override
     public String toString() {
-        return "Robot{" +
-                "model='" + model + '\'' +
+        return "People{" +
+                "name='" + name + '\'' +
                 '}';
     }
 
@@ -33,11 +33,11 @@ public class Robot implements Player {
 
     @Override
     public void run() {
-        System.out.println("Робот " + model + " пробежал дистанцию");
+        System.out.println("Человек " + name + " пробежал дистанцию длинною");
     }
 
     @Override
     public void jump() {
-        System.out.println("Робот " + model + " перепрыгнул через препятствие");
+        System.out.println("Человек " + name + " перепрыгнул через препятствие");
     }
 }
