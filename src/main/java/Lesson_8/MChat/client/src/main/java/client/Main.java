@@ -1,4 +1,4 @@
-package Lesson_7.MChat.client.src.main.java.client;
+package Lesson_8.MChat.client.src.main.java.client;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

@@ -1,4 +1,4 @@
-package Lesson_7.MChat.server.src.main.java.server;
+package Lesson_8.MChat.server.src.main.java.server;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,5 +36,16 @@ public class SimpleAuthService implements AuthService {
             }
         }
         return null;
+    }
+
+    @Override
+    public boolean registration(String login, String password, String nickname) {
+        for (UserData user : users) {
+            if (user.login.equals(login) || user.nickname.equals(nickname)) {
+                return false;
+            }
+        }
+        users.add(new UserData(login, password, nickname));
+        return true;
     }
 }
